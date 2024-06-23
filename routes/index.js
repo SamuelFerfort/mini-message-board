@@ -25,6 +25,8 @@ router.get("/new", function (req, res) {
 
 router.post("/new", function (req, res) {
   const { message, user } = req.body;
+
+  if (!message || !user) return;
   console.log(message, user);
   const newMessage = {
     text: message,

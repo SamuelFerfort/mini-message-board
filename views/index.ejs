@@ -6,12 +6,14 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <ul>
+    <ul >
     <% messages.forEach(function(message) { %>
 
       <li>
-        <strong><%= message.user %>:</strong>
-        <%= message.text %> - <%= message.added %>
+        <h3><%= message.user %>:</h1>
+       <strong>Message</strong> : <%= message.text %>
+       <hr>
+       <strong>Added:</strong> <%= message.added %>
       </li>
    <% }); %>
   </ul>
