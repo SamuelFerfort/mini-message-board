@@ -2,16 +2,20 @@ const express = require("express");
 const router = express.Router();
 const { DateTime } = require("luxon");
 
+function getCurrentFormattedDate() {
+  return DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+}
+
 const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: DateTime.now().toISO(),
+    added: getCurrentFormattedDate(),
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: DateTime.now().toISO(),
+    added: getCurrentFormattedDate(),
   },
 ];
 
@@ -32,7 +36,7 @@ router.post("/new", function (req, res) {
   const newMessage = {
     text: message,
     user: user,
-    added: DateTime.now().toISO(),
+    added: getCurrentFormattedDate(),
   };
   messages.push(newMessage);
   res.redirect("/");
