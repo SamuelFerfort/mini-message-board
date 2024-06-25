@@ -1,16 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const { DateTime } = require("luxon");
 
 const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date(),
+    added: DateTime.now().toISO(),
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date(),
+    added: DateTime.now().toISO(),
   },
 ];
 
@@ -31,7 +32,7 @@ router.post("/new", function (req, res) {
   const newMessage = {
     text: message,
     user: user,
-    added: new Date(),
+    added: DateTime.now().toISO(),
   };
   messages.push(newMessage);
   res.redirect("/");
