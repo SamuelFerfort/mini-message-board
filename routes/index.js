@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { DateTime } = require("luxon");
-
+const db = require("../db/queries");
 function getCurrentFormattedDate() {
   return DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 }
